@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from "./Header"
 import './App.css'
-function App() {
 
-  function deleteHandler(message) {
+class App extends Component {
+
+  deleteHandler(message) {
     alert(message);
   }
 
-  let subscribers = [
-    {
-      id: 1,
-      name: "Shilpa",
-      phone:"8888888888"
-    },
-    {
-      id: 2,
-      name: "Shristi",
-      phone: "9999999999"
+  // let subscribers = [
+  //   {
+  //     id: 1,
+  //     name: "Shilpa",
+  //     phone:"8888888888"
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Shristi",
+  //     phone: "9999999999"
+  //   }
+  // ]
+
+  constructor()
+  {
+    super();
+    this.state = {
+      subscribersListToShow: []
     }
-  ]
+  }
+  render() {
   return (
     <div className='component-container'>
       <div className='component-body-container'>
@@ -30,12 +40,12 @@ function App() {
       </div>
 
       {
-        subscribers.map(sub=>{
+        this.state.subscribersListToShow.map(sub=>{
         return <div key={sub.id} className='grid-container '>
         <span className='grid-item '>{sub.name}</span>
         <span className='grid-item'>{sub.phone}</span>
         <span className='grid-item action-btn-container'>
-            <button className='custom-btn delete-btn' onClick={deleteHandler.bind(this, "Delete Handler Clicked")}>Delete</button>
+            <button className='custom-btn delete-btn' onClick={this.deleteHandler.bind(this, "Delete Handler Clicked")}>Delete</button>
         </span>
         </div>
         })
@@ -44,6 +54,7 @@ function App() {
     </div>
     </div>
   );
+}
 }
 
 export default App;
