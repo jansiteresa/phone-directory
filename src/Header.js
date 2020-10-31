@@ -4,7 +4,7 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
-                Phone Directory
+                {this.props.heading}
             </div>
         )
     }

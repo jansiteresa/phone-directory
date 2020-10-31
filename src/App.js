@@ -17,7 +17,7 @@ function App() {
   return (
     <div className='component-container'>
       <div className='component-body-container'>
-      <Header/>
+      <Header heading="Phone Directory"/>
       <button className='custom-btn add-btn'> Add </button>
       <div className='grid-container heading-container'>
         <span className='grid-item name-heading'> Name </span> <br />
@@ -27,9 +27,12 @@ function App() {
       {
         subscribers.map(sub=>{
         return <div key={sub.id} className='grid-container '>
-        <span className='grid-item '>{sub.name}</span> <br />
+        <span className='grid-item '>{sub.name}</span>
         <span className='grid-item'>{sub.phone}</span>
-      </div>
+        <span className='grid-item action-btn-container'>
+            <button className='custom-btn delete-btn'>Delete</button>
+        </span>
+        </div>
         })
       }
 
